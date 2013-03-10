@@ -16,8 +16,17 @@ public class Player : Character
 			if(!alive)
 			{
 				recordedScore = true;
-				Global.AddHighScore(score);
+				AddHighScore();
 			}
+		}
+	}
+	
+	private void AddHighScore()
+	{
+		if(!string.IsNullOrEmpty(Global.UserName) && !string.IsNullOrEmpty(Global.Token))
+		{
+			GameJoltApi api = new GameJoltApi();
+			StartCoroutine(api.DoAddHighScore(Global.UserName, Global.Token, (int)score));	
 		}
 	}
 
@@ -36,7 +45,7 @@ public class Player : Character
 		if(!recordedScore && Global.GameOver)
 		{
 			recordedScore = true;
-			Global.AddHighScore(score);
+			AddHighScore();
 		}
 		
 		// these are false unless one of keys is pressed
