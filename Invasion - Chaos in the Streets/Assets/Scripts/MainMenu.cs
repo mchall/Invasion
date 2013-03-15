@@ -89,7 +89,7 @@ public class MainMenu : MonoBehaviour
 		}	    
 		
 		GUI.SetNextControlName("Play+");
-	    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 80,300,30), "Play Game+")) 
+	    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 80,300,30), "Infinite Run")) 
 		{
 			selectedIndex = 2;
 			RunOption();
@@ -121,7 +121,7 @@ public class MainMenu : MonoBehaviour
 		else if(selectedIndex == 2)
 		{
 			Global.HardcoreMode = true;
-			Application.LoadLevel("Game"); 
+			Application.LoadLevel("Infinity"); 
 		}		
 #if !UNITY_WEBPLAYER
 		else if(selectedIndex == 3)
