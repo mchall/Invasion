@@ -152,6 +152,7 @@
      <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTSounds.cs" />
      <Compile Include="Assets\Orthello\Standard Assets\OT\_Base\OTTimeCycle.cs" />
      <Compile Include="Assets\Scripts\AutoLogin.cs" />
+     <Compile Include="Assets\Scripts\BlockDecay.cs" />
      <Compile Include="Assets\Scripts\BlockDetonator.cs" />
      <Compile Include="Assets\Scripts\Cam.cs" />
      <Compile Include="Assets\Scripts\Character.cs" />
@@ -163,6 +164,7 @@
      <Compile Include="Assets\Scripts\FallenEnemyGenerator.cs" />
      <Compile Include="Assets\Scripts\GameJoltApi.cs" />
      <Compile Include="Assets\Scripts\Global.cs" />
+     <Compile Include="Assets\Scripts\LevelGenerator.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Rocket.cs" />
