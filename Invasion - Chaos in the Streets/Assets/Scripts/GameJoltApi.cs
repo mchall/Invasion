@@ -23,7 +23,7 @@ public class GameJoltApi
     {
         using (SHA1Managed sha1 = new SHA1Managed())
         {
-            var data = sha1.ComputeHash(Encoding.UTF8.GetBytes(uri + "d93ddea450a2313dfb63fe6328670e64"));
+            var data = sha1.ComputeHash(Encoding.UTF8.GetBytes(uri + "<secret>"));
 
             StringBuilder sb = new StringBuilder();
 
