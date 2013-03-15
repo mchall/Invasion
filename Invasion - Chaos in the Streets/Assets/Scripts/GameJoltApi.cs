@@ -9,7 +9,7 @@ public class GameJoltApi
 	public IEnumerator DoAddHighScore(string userName, string token, int score)
 	{
 		var tableUri = string.Format("http://gamejolt.com/api/game/v1/scores/add/?game_id=13018&score={0}&sort={1}&username={2}&user_token={3}",
-                score, score, userName, token);
+                score, score, EscapeUrl(userName), token);
         var uri = new Uri(String.Format("{0}&signature={1}", tableUri, GetSigniture(tableUri)));
 		
 		WWW www = new WWW(uri.ToString());
@@ -23,7 +23,7 @@ public class GameJoltApi
     {
         using (SHA1Managed sha1 = new SHA1Managed())
         {
-            var data = sha1.ComputeHash(Encoding.UTF8.GetBytes(uri + "<secret>"));
+            var data = sha1.ComputeHash(Encoding.UTF8.GetBytes(uri + "d93ddea450a2313dfb63fe6328670e64"));
 
             StringBuilder sb = new StringBuilder();
 

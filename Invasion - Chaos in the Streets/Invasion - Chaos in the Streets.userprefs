@@ -1,8 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LevelGenerator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Rocket.cs">
     <Files>
-      <File FileName="Assets\Scripts\LevelGenerator.cs" Line="26" Column="27" />
+      <File FileName="Assets\Scripts\BlockDecay.cs" Line="11" Column="2" />
+      <File FileName="Assets\Scripts\LevelGenerator.cs" Line="72" Column="2" />
+      <File FileName="Assets\Scripts\FallenEnemy.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\FallenEnemyGenerator.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Rocket.cs" Line="54" Column="7" />
+      <File FileName="Assets\Scripts\Character.cs" Line="262" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

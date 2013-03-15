@@ -6,7 +6,7 @@ public class BlockDecay : MonoBehaviour
 	public void Start () 
 	{
 		OTSprite sprite = GetComponent<OTSprite>();
-		sprite.onOutOfView = DestroyWhenOutOfView;	
+		sprite.onOutOfView = DestroyWhenOutOfView;
 	}
 	
 	void DestroyWhenOutOfView(OTObject owner)

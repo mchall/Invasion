@@ -18,6 +18,7 @@ public class FallenEnemyGenerator : MonoBehaviour
 			Camera.main.audio.PlayOneShot(enemyDeath);
 		
 			Instantiate(fallenEnemy, transform.localPosition + new Vector3(10, 0, 0), Quaternion.identity);
+			Destroy(this);
 		}
     }
 }
