@@ -12,6 +12,15 @@ public class AutoLogin : MonoBehaviour
 		if(string.IsNullOrEmpty(Global.UserName))
 		{
 			Global.UserName = "NO NAME";
+#if !UNITY_WEBPLAYER
+			try
+			{
+				Global.UserName = System.Environment.UserName;
+			}
+			catch
+			{
+			}
+#endif
 		}
 		
 	    Application.ExternalCall("GJAPI_AuthUser", gameObject.name, "TryLogin");
