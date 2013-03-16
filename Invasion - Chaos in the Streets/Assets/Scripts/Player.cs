@@ -28,6 +28,12 @@ public class Player : Character
 			GameJoltApi api = new GameJoltApi();
 			StartCoroutine(api.DoAddHighScore(Global.UserName, Global.Token, (int)score));	
 		}
+		
+		if(!string.IsNullOrEmpty(Global.UserName))
+		{
+			DreamloApi dApi = new DreamloApi();
+			StartCoroutine(dApi.DoAddHighScore(Global.UserName, (int)score));
+		}
 	}
 
 	// Update is called once per frame

@@ -7,7 +7,7 @@ using System.Text;
 public class AutoLogin : MonoBehaviour 
 {	
 	void Start ()
-	{
+	{		
 	    Application.ExternalCall("GJAPI_AuthUser", gameObject.name, "TryLogin");
 	}
 

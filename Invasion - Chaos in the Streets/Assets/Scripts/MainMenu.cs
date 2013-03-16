@@ -5,6 +5,8 @@ public class MainMenu : MonoBehaviour
 {
 	public GUISkin customGUI;
 	
+	float time = 0;
+	
 #if UNITY_WEBPLAYER
 	string[] menuOptions = new string[3];
 #else
@@ -54,19 +56,26 @@ public class MainMenu : MonoBehaviour
 	
 	void Update()
 	{	
+		time += Time.deltaTime;
+		if(time < 0.1f)
+			return;			
+		
 	    if (Input.GetKeyDown(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) 
 		{
 			selectedIndex = MenuSelection(selectedIndex, "up");
+			time = 0;
 	    }
 			
 		if (Input.GetKeyDown(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) 
 		{
 			selectedIndex = MenuSelection(selectedIndex, "down");
+			time = 0;
 	    }
 		
 		if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)) 
 		{
 			RunOption();
+			time = 0;
 	    }
 	}
 	
