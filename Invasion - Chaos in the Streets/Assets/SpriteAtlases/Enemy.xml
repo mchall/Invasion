@@ -7,28 +7,28 @@
             <key>1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,0},{226,154}}</string>
+                <string>{{0,0},{240,144}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{226,154}}</string>
+                <string>{{0,0},{240,144}}</string>
                 <key>sourceSize</key>
-                <string>{226,154}</string>
+                <string>{240,144}</string>
             </dict>
             <key>2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,154},{226,154}}</string>
+                <string>{{0,144},{240,144}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{226,154}}</string>
+                <string>{{0,0},{240,144}}</string>
                 <key>sourceSize</key>
-                <string>{226,154}</string>
+                <string>{240,144}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -36,13 +36,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>Enemy.png</string>
+            <string>SpriteAtlases.png</string>
             <key>size</key>
             <string>{256,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:ed304fe28e6501dc72b1915fba241505$</string>
+            <string>$TexturePacker:SmartUpdate:76185af461664bc9f7499c848c60057c$</string>
             <key>textureFileName</key>
-            <string>Enemy.png</string>
+            <string>SpriteAtlases.png</string>
         </dict>
     </dict>
 </plist>
