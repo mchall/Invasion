@@ -5,12 +5,14 @@ public class MainMenu : MonoBehaviour
 {
 	public GUISkin customGUI;
 	
+	bool nameMode = false;
+	
 	float time = 0;
 	
 #if UNITY_WEBPLAYER
-	string[] menuOptions = new string[3];
-#else
 	string[] menuOptions = new string[4];
+#else
+	string[] menuOptions = new string[5];
 #endif
 	
 	int selectedIndex = 1;
@@ -20,8 +22,9 @@ public class MainMenu : MonoBehaviour
 		menuOptions[0] = "Tutorial";
 		menuOptions[1] = "Play";
 		menuOptions[2] = "Play+";
+		menuOptions[3] = "ChangeName";
 #if !UNITY_WEBPLAYER
-		menuOptions[3] = "Exit";
+		menuOptions[4] = "Exit";
 #endif
 	}
 	
@@ -58,7 +61,7 @@ public class MainMenu : MonoBehaviour
 	{	
 		time += Time.deltaTime;
 		if(time < 0.1f)
-			return;			
+			return;
 		
 	    if (Input.GetKeyDown(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) 
 		{
@@ -83,6 +86,35 @@ public class MainMenu : MonoBehaviour
 	{		
 		GUI.skin = customGUI;
 		
+		if(nameMode)
+		{
+			GUI.SetNextControlName("UserNameField");
+			Global.UserName = GUI.TextField(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 40,300,30), Global.UserName); 
+			
+			Event e = Event.current;
+        	if (e.keyCode == KeyCode.Return || e.keyCode == KeyCode.Escape) 
+			{
+				if(time > 0.1f)
+				{
+					UpdateUserName();
+				}
+			}
+			
+			if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2) + 80),300,30), "Change")) 
+			{
+				UpdateUserName();
+			} 
+			
+			if (nameMode && Input.GetKeyDown(KeyCode.Return))
+			{
+				nameMode = false;
+			}
+			
+			GUI.FocusControl("UserNameField");
+			
+			return;
+		}
+		
 	    GUI.SetNextControlName("Tutorial");
 	    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)),300,30), "Tutorial")) 
 		{
@@ -103,17 +135,36 @@ public class MainMenu : MonoBehaviour
 			selectedIndex = 2;
 			RunOption();
 		}	 
+		
+		GUI.SetNextControlName("ChangeName");
+	    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 120,300,30), "Change login")) 
+		{
+			selectedIndex = 3;
+			RunOption();
+		}	
 	
 #if !UNITY_WEBPLAYER
 	    GUI.SetNextControlName("Exit");
-	    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 120,300,30), "Exit")) 
+	    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 160,300,30), "Exit")) 
 		{
-			selectedIndex = 3;
+			selectedIndex = 4;
 			RunOption();
 		}
 #endif
 	
 	    GUI.FocusControl(menuOptions[selectedIndex]);
+	}
+	
+	void UpdateUserName()
+	{
+		if(string.IsNullOrEmpty(Global.UserName))
+		{
+			Global.UserName = "NO NAME";
+		}
+		
+		PlayerPrefs.SetString("UserName", Global.UserName);
+		nameMode = false;
+		Global.Token = null;
 	}
 	
 	void RunOption()
@@ -132,8 +183,13 @@ public class MainMenu : MonoBehaviour
 			Global.HardcoreMode = true;
 			Application.LoadLevel("Infinity"); 
 		}		
-#if !UNITY_WEBPLAYER
 		else if(selectedIndex == 3)
+		{
+			nameMode = true;
+			time = 0;
+		}	
+#if !UNITY_WEBPLAYER
+		else if(selectedIndex == 4)
 		{
 			Application.Quit(); 
 		}

@@ -8,7 +8,18 @@ public class AutoLogin : MonoBehaviour
 {	
 	void Start ()
 	{		
+		Global.UserName = PlayerPrefs.GetString("UserName");
+		if(string.IsNullOrEmpty(Global.UserName))
+		{
+			Global.UserName = System.Environment.UserName;
+		}
+		
 	    Application.ExternalCall("GJAPI_AuthUser", gameObject.name, "TryLogin");
+	}
+	
+	void Update()
+	{
+		GetComponent<GUIText>().text = String.Format("Logged in as {0}", Global.UserName);
 	}
 
 	public void TryLogin(string response)
@@ -21,12 +32,9 @@ public class AutoLogin : MonoBehaviour
 			
 			Global.UserName = username;
 			Global.Token = usertoken;
-			
-			GetComponent<GUIText>().text = String.Format("Logged in as {0}", username);
 		}
 		catch
 		{
-			GetComponent<GUIText>().text = "Not logged in";
 		}
 	}
 }
