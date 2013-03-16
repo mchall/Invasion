@@ -159,7 +159,6 @@
      <Compile Include="Assets\Scripts\CharacterAnims.cs" />
      <Compile Include="Assets\Scripts\Chopper.cs" />
      <Compile Include="Assets\Scripts\Civilian.cs" />
-     <Compile Include="Assets\Scripts\DreamloApi.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\FallenEnemy.cs" />
      <Compile Include="Assets\Scripts\FallenEnemyGenerator.cs" />

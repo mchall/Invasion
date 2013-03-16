@@ -76,14 +76,14 @@ public class MainMenu : MonoBehaviour
 	    }
 		
 		if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)) 
-		{
+		{	
 			RunOption();
 			time = 0;
 	    }
-	}
+	}	
 	
-	void OnGUI () 
-	{		
+	void OnGUI() 
+	{	
 		GUI.skin = customGUI;
 		
 		if(nameMode)
@@ -91,24 +91,10 @@ public class MainMenu : MonoBehaviour
 			GUI.SetNextControlName("UserNameField");
 			Global.UserName = GUI.TextField(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 40,300,30), Global.UserName); 
 			
-			Event e = Event.current;
-        	if (e.keyCode == KeyCode.Return || e.keyCode == KeyCode.Escape) 
-			{
-				if(time > 0.1f)
-				{
-					UpdateUserName();
-				}
-			}
-			
 			if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2) + 80),300,30), "Change")) 
 			{
 				UpdateUserName();
 			} 
-			
-			if (nameMode && Input.GetKeyDown(KeyCode.Return))
-			{
-				nameMode = false;
-			}
 			
 			GUI.FocusControl("UserNameField");
 			
@@ -136,12 +122,15 @@ public class MainMenu : MonoBehaviour
 			RunOption();
 		}	 
 		
-		GUI.SetNextControlName("ChangeName");
-	    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 120,300,30), "Change login")) 
+		if(string.IsNullOrEmpty(Global.Token))
 		{
-			selectedIndex = 3;
-			RunOption();
-		}	
+			GUI.SetNextControlName("ChangeName");
+		    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 120,300,30), "Change login")) 
+			{
+				selectedIndex = 3;
+				RunOption();
+			}
+		}
 	
 #if !UNITY_WEBPLAYER
 	    GUI.SetNextControlName("Exit");
@@ -185,8 +174,11 @@ public class MainMenu : MonoBehaviour
 		}		
 		else if(selectedIndex == 3)
 		{
-			nameMode = true;
-			time = 0;
+			if(string.IsNullOrEmpty(Global.Token))
+			{
+				nameMode = true;
+				time = 0;
+			}
 		}	
 #if !UNITY_WEBPLAYER
 		else if(selectedIndex == 4)

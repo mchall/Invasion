@@ -11,7 +11,7 @@ public class AutoLogin : MonoBehaviour
 		Global.UserName = PlayerPrefs.GetString("UserName");
 		if(string.IsNullOrEmpty(Global.UserName))
 		{
-			Global.UserName = System.Environment.UserName;
+			Global.UserName = "NO NAME";
 		}
 		
 	    Application.ExternalCall("GJAPI_AuthUser", gameObject.name, "TryLogin");
@@ -33,7 +33,7 @@ public class AutoLogin : MonoBehaviour
 			Global.UserName = username;
 			Global.Token = usertoken;
 		}
-		catch
+		catch(Exception)
 		{
 		}
 	}

@@ -28,11 +28,10 @@ public class Player : Character
 			GameJoltApi api = new GameJoltApi();
 			StartCoroutine(api.DoAddHighScore(Global.UserName, Global.Token, (int)score));	
 		}
-		
-		if(!string.IsNullOrEmpty(Global.UserName))
+		else if(!string.IsNullOrEmpty(Global.UserName))
 		{
-			DreamloApi dApi = new DreamloApi();
-			StartCoroutine(dApi.DoAddHighScore(Global.UserName, (int)score));
+			GameJoltApi api = new GameJoltApi();
+			StartCoroutine(api.DoAddHighScore(Global.UserName, (int)score));
 		}
 	}
 

@@ -10,9 +10,22 @@ public class GameJoltApi
 	{
 		var tableUri = string.Format("http://gamejolt.com/api/game/v1/scores/add/?game_id=13018&score={0}&sort={1}&username={2}&user_token={3}",
                 score, score, EscapeUrl(userName), token);
-        var uri = new Uri(String.Format("{0}&signature={1}", tableUri, GetSigniture(tableUri)));
+        var uri = String.Format("{0}&signature={1}", tableUri, GetSigniture(tableUri));
 		
-		WWW www = new WWW(uri.ToString());
+		WWW www = new WWW(uri);
+		while(!www.isDone)
+		{
+			yield return null;	
+		}
+	}
+
+	public IEnumerator DoAddHighScore(string userName, int score)
+	{
+		var tableUri = string.Format("http://gamejolt.com/api/game/v1/scores/add/?game_id=13018&score={0}&sort={1}&guest={2}",
+                score, score, EscapeUrl(userName));
+        var uri = String.Format("{0}&signature={1}", tableUri, GetSigniture(tableUri));
+		
+		WWW www = new WWW(uri);
 		while(!www.isDone)
 		{
 			yield return null;	
