@@ -89,9 +89,9 @@ public class MainMenu : MonoBehaviour
 		if(nameMode)
 		{
 			GUI.SetNextControlName("UserNameField");
-			Global.UserName = GUI.TextField(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 40,300,30), Global.UserName); 
+			Global.UserName = GUI.TextField(new Rect(((Screen.width-300) / 2),((Screen.height / 2)),300,30), Global.UserName); 
 			
-			if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2) + 80),300,30), "Change")) 
+			if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2) + 40),300,30), "Change")) 
 			{
 				UpdateUserName();
 			} 
@@ -102,21 +102,21 @@ public class MainMenu : MonoBehaviour
 		}
 		
 	    GUI.SetNextControlName("Tutorial");
-	    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)),300,30), "Tutorial")) 
+	    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) - 40,300,30), "Tutorial")) 
 		{
 			selectedIndex = 0;
 			RunOption();
 		}    
 	
 	    GUI.SetNextControlName("Play");
-	    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 40,300,30), "Play Game")) 
+	    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)),300,30), "Play Game")) 
 		{
 			selectedIndex = 1;
 			RunOption();
 		}	    
 		
 		GUI.SetNextControlName("Play+");
-	    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 80,300,30), "Infinite Run")) 
+	    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 40,300,30), "Infinite Run")) 
 		{
 			selectedIndex = 2;
 			RunOption();
@@ -125,7 +125,7 @@ public class MainMenu : MonoBehaviour
 		if(string.IsNullOrEmpty(Global.Token))
 		{
 			GUI.SetNextControlName("ChangeName");
-		    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 120,300,30), "Change login")) 
+		    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 80,300,30), "Change login")) 
 			{
 				selectedIndex = 3;
 				RunOption();
@@ -134,7 +134,7 @@ public class MainMenu : MonoBehaviour
 	
 #if !UNITY_WEBPLAYER
 	    GUI.SetNextControlName("Exit");
-	    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 160,300,30), "Exit")) 
+	    if (GUI.Button(new Rect(((Screen.width-300) / 2),((Screen.height / 2)) + 120,300,30), "Exit")) 
 		{
 			selectedIndex = 4;
 			RunOption();
