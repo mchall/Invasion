@@ -7,28 +7,28 @@
             <key>1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,0},{240,144}}</string>
+                <string>{{0,0},{226,154}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{240,144}}</string>
+                <string>{{0,0},{226,154}}</string>
                 <key>sourceSize</key>
-                <string>{240,144}</string>
+                <string>{226,154}</string>
             </dict>
             <key>2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,144},{240,144}}</string>
+                <string>{{0,154},{226,154}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{240,144}}</string>
+                <string>{{0,0},{226,154}}</string>
                 <key>sourceSize</key>
-                <string>{240,144}</string>
+                <string>{226,154}</string>
             </dict>
         </dict>
         <key>metadata</key>
