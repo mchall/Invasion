@@ -94,7 +94,7 @@ public class CMover4 : MonoBehaviour {
     
     public void _OnMouseEnter(OTObject owner)
     {
-        owner.gameObject.renderer.material.SetColor("_TintColor", new Color(1, 0, 0));
+        owner.gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", new Color(1, 0, 0));
     }
 
     // Mouse exit delegate handler
@@ -105,7 +105,7 @@ public class CMover4 : MonoBehaviour {
     
     public void OnMouseExit()
     {
-        gameObject.renderer.material.SetColor("_TintColor", new Color(.5f, .5f, .5f));
+        gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", new Color(.5f, .5f, .5f));
     }
 
 	// Update is called once per frame

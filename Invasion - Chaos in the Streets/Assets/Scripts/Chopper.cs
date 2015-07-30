@@ -19,7 +19,7 @@ public class Chopper : MonoBehaviour
 				
 				victoryText.text = "A WINNER IS YOU!\n\nPress 'R' to reset level \nor 'ESC' to leave";
 				
-				Camera.main.audio.PlayOneShot(fireRocket);
+				Camera.main.GetComponent<AudioSource>().PlayOneShot(fireRocket);
 				if(rocket != null)
 				{
 					GameObject rocketClone = (GameObject)Instantiate(rocket, transform.position, Quaternion.identity);
@@ -27,8 +27,8 @@ public class Chopper : MonoBehaviour
 					rocketClone.GetComponent<Rocket>().destroyInvader = true;
 					OTAnimatingSprite sprite = rocketClone.GetComponent<OTAnimatingSprite>();
 					sprite.onOutOfView = DestroyWhenOutOfView;	
-					rocketClone.rigidbody.velocity = (enemy.transform.localPosition - transform.localPosition).normalized * 50; 
-					rocketClone.rigidbody.velocity = new Vector3(rocketClone.rigidbody.velocity.x, 0, rocketClone.rigidbody.velocity.z);
+					rocketClone.GetComponent<Rigidbody>().velocity = (enemy.transform.localPosition - transform.localPosition).normalized * 50; 
+					rocketClone.GetComponent<Rigidbody>().velocity = new Vector3(rocketClone.GetComponent<Rigidbody>().velocity.x, 0, rocketClone.GetComponent<Rigidbody>().velocity.z);
 				}
 				
 				generated = true;

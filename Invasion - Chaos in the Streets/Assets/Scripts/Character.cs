@@ -246,13 +246,13 @@ public class Character : MonoBehaviour
 		}		
 		
 		// Right edge of screen
-		if (thisTransform.position.x + halfMyX > (Camera.mainCamera.transform.position.x + (6.25 * 4/3))) 
+		if (thisTransform.position.x + halfMyX > (Camera.main.transform.position.x + (6.25 * 4/3))) 
 		{
 			BlockedRight();
 		}
 		
 		// Left edge of screen
-		if (thisTransform.position.x - halfMyX < (Camera.mainCamera.transform.position.x - (6.25 * 4/3))) 
+		if (thisTransform.position.x - halfMyX < (Camera.main.transform.position.x - (6.25 * 4/3))) 
 		{
 			if(killedByLeftScreen)
 				Die();
@@ -263,7 +263,7 @@ public class Character : MonoBehaviour
 	{
 		if(other.gameObject.layer == 9)
 		{
-			if(other.rigidbody.velocity.magnitude > deathVelocity)
+			if(other.GetComponent<Rigidbody>().velocity.magnitude > deathVelocity)
 			{
 				if(CheckLeft() || CheckRight() || CheckUp())
 				{
@@ -274,7 +274,7 @@ public class Character : MonoBehaviour
 		
 		if(other.gameObject.layer == 10)
 		{
-			if(other.rigidbody.velocity.magnitude > deathVelocity)
+			if(other.GetComponent<Rigidbody>().velocity.magnitude > deathVelocity)
 			{
 				Die();
 			}

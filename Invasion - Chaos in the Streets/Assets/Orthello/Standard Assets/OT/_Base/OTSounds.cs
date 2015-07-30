@@ -199,7 +199,7 @@ public class OTSound
 		delay = _delay;		
 		duration = _duration;
 		source.clip = soundClip.clip;		
-		source.pan = _pan;
+		source.panStereo = _pan;
 		source.pitch = _pitch;
 		source.volume = _volume;							
 		
@@ -390,7 +390,7 @@ public class OTSound
 	{
 		_pan = val;
 		if (source!=null) 
-			source.pan = val;
+			source.panStereo = val;
 		return this;
 	}
 	/// <summary>

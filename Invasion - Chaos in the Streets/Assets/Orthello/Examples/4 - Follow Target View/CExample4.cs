@@ -60,7 +60,7 @@ public class CExample4 : MonoBehaviour {
     {
         // Change GUIText color to black
         TextMesh txt = (GameObject.Find("info") as GameObject).GetComponent<TextMesh>();
-		txt.renderer.material.color = Color.black;
+		txt.GetComponent<Renderer>().material.color = Color.black;
         // create out objects
         CreateObjects();
         // Initialize our view

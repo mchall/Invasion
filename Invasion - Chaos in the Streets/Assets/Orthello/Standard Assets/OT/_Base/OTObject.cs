@@ -621,8 +621,8 @@ public class OTObject : MonoBehaviour
         get
         {
             Rect r = new Rect(
-                renderer.bounds.center.x - (size.x / 2),
-                ((OT.world == OT.World.WorldSide2D)?renderer.bounds.center.y:renderer.bounds.center.z) - (size.y / 2),
+                GetComponent<Renderer>().bounds.center.x - (size.x / 2),
+                ((OT.world == OT.World.WorldSide2D)?GetComponent<Renderer>().bounds.center.y:GetComponent<Renderer>().bounds.center.z) - (size.y / 2),
                 size.x,
                 size.y);
             return r;
@@ -977,13 +977,13 @@ public class OTObject : MonoBehaviour
     {
         get
         {
-            return renderer.enabled;
+            return GetComponent<Renderer>().enabled;
         }
         set
         {
-            if (value != renderer.enabled)
+            if (value != GetComponent<Renderer>().enabled)
             {
-                renderer.enabled = value;
+                GetComponent<Renderer>().enabled = value;
                 if (!value)
                 {
                     if (transform.childCount > 0)
@@ -1001,7 +1001,7 @@ public class OTObject : MonoBehaviour
                     if (hiddenChildren.Count > 0)
                     {
                         for (int r = 0; r < hiddenChildren.Count; r++)
-                            hiddenChildren[r].renderer.enabled = true;
+                            hiddenChildren[r].GetComponent<Renderer>().enabled = true;
                         hiddenChildren.Clear();
                     }
                 }
@@ -1551,16 +1551,16 @@ public class OTObject : MonoBehaviour
             Update();
         }
 		
-		if (protoType.collider !=null && protoType.collider is BoxCollider)
+		if (protoType.GetComponent<Collider>() !=null && protoType.GetComponent<Collider>() is BoxCollider)
 		{
-			(collider as BoxCollider).center = (protoType.collider as BoxCollider).center;
-			(collider as BoxCollider).size = (protoType.collider as BoxCollider).size;
+			(GetComponent<Collider>() as BoxCollider).center = (protoType.GetComponent<Collider>() as BoxCollider).center;
+			(GetComponent<Collider>() as BoxCollider).size = (protoType.GetComponent<Collider>() as BoxCollider).size;
 		}
 		else
-		if (protoType.collider !=null && protoType.collider is SphereCollider)
+		if (protoType.GetComponent<Collider>() !=null && protoType.GetComponent<Collider>() is SphereCollider)
 		{
-			(collider as SphereCollider).center = (protoType.collider as SphereCollider).center;
-			(collider as SphereCollider).radius = (protoType.collider as SphereCollider).radius;
+			(GetComponent<Collider>() as SphereCollider).center = (protoType.GetComponent<Collider>() as SphereCollider).center;
+			(GetComponent<Collider>() as SphereCollider).radius = (protoType.GetComponent<Collider>() as SphereCollider).radius;
 		}
 	}
 

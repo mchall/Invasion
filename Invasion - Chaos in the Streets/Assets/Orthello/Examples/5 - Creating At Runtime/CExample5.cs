@@ -308,14 +308,14 @@ public class CExample5 : MonoBehaviour {
 
         // color menu red when we are hovering over an item
         if (OT.Over(stage1))
-            stagemesh1.renderer.material.color = new Color(1, .3f, .3f);
+            stagemesh1.GetComponent<Renderer>().material.color = new Color(1, .3f, .3f);
         else
-            stagemesh1.renderer.material.color = new Color(1, 1, 1);
+            stagemesh1.GetComponent<Renderer>().material.color = new Color(1, 1, 1);
 
         if (OT.Over(stage2))
-            stagemesh2.renderer.material.color = new Color(1, .3f, .3f);
+            stagemesh2.GetComponent<Renderer>().material.color = new Color(1, .3f, .3f);
         else
-            stagemesh2.renderer.material.color = new Color(1, 1, 1);
+            stagemesh2.GetComponent<Renderer>().material.color = new Color(1, 1, 1);
 
 
         //check if we want to change stage

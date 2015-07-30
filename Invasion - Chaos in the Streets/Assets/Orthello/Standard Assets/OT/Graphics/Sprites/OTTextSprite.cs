@@ -226,9 +226,9 @@ public class OTTextSprite : OTSprite
 		if (transform.parent!=null && transform.parent.GetComponent("OTSpriteBatch")!=null)
 			transform.parent.SendMessage("SpriteAfterMesh",this,SendMessageOptions.DontRequireReceiver);
 		
-		if (collider!=null && collider is BoxCollider)
+		if (GetComponent<Collider>()!=null && GetComponent<Collider>() is BoxCollider)
 		{
-			BoxCollider b = (collider as BoxCollider);
+			BoxCollider b = (GetComponent<Collider>() as BoxCollider);
 			b.center = mesh.bounds.center;
 			b.size = mesh.bounds.extents*2;
 		}

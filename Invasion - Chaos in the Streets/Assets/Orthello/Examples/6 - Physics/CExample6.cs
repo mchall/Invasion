@@ -55,7 +55,7 @@ public class CExample6 : MonoBehaviour {
                     sp.size = new Vector2(si, si);
                 }
 
-                sp.gameObject.rigidbody.mass = si;
+                sp.gameObject.GetComponent<Rigidbody>().mass = si;
                 sp.position = new Vector2(-200 + Random.value * 400, 300);
                 sp.onOutOfView = DestroyWhenOutOfView;
 				sp.onCollision = CollisionOccured;

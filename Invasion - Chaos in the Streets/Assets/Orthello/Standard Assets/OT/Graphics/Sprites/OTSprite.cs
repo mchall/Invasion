@@ -201,17 +201,17 @@ public class OTSprite : OTObject
         get
         {
             if (Application.isPlaying)
-                return renderer.material;
+                return GetComponent<Renderer>().material;
             else
-                return renderer.sharedMaterial;
+                return GetComponent<Renderer>().sharedMaterial;
         }
         set
         {
             assignedMaterial = true;
             if (Application.isPlaying)
-                renderer.material = value;
+                GetComponent<Renderer>().material = value;
             else
-                renderer.sharedMaterial = value;
+                GetComponent<Renderer>().sharedMaterial = value;
         }
     }
 
@@ -323,7 +323,7 @@ public class OTSprite : OTObject
 		lastMat = mat;		
         if (mat != null)
         {
-            renderer.material = mat;
+            GetComponent<Renderer>().material = mat;
             HandleUV();
         }
         base.StartUp();
@@ -730,20 +730,20 @@ public class OTSprite : OTObject
 			// will start floating
             if (lastMat == null && !assignedMaterial && !isCopy)
             {
-				if (renderer!=null)
+				if (GetComponent<Renderer>()!=null)
 				{
 	                if (!Application.isPlaying)
-	                    DestroyImmediate(renderer.sharedMaterial, true);
+	                    DestroyImmediate(GetComponent<Renderer>().sharedMaterial, true);
 	                else
-	                    Destroy(renderer.material);
+	                    Destroy(GetComponent<Renderer>().material);
 				}
             }
 			
 			// assign the new material to the renderer
             if (Application.isPlaying) 
-				renderer.material = mat;
+				GetComponent<Renderer>().material = mat;
             else
-                renderer.sharedMaterial = mat;
+                GetComponent<Renderer>().sharedMaterial = mat;
 
 			// store this material as the last material
             lastMat = mat;
@@ -858,7 +858,7 @@ public class OTSprite : OTObject
 					// decrease its use
 					if (lastMat!=null && lastMatName!="")
 						OT.MatDec(lastMat,lastMatName);
-	                renderer.material = mat;
+	                GetComponent<Renderer>().material = mat;
 	                HandleUV();					
 					lastMat = mat;
 					lastMatName = cMatName;
@@ -998,7 +998,7 @@ public class OTSprite : OTObject
 		if (mat != null)
         {
 			OTDebug.Message("GetMat -> Found","ot-mat");			
-            renderer.material = mat;
+            GetComponent<Renderer>().material = mat;
             HandleUV();
         }
         else
@@ -1031,7 +1031,7 @@ public class OTSprite : OTObject
 	public void  InvalidateSprite()
 	{
 		spriteInvalid = true;
-		renderer.enabled = false;
+		GetComponent<Renderer>().enabled = false;
 	}
 	
 	bool SpriteValid()
@@ -1041,7 +1041,7 @@ public class OTSprite : OTObject
 			if (!Application.isPlaying || image != null || (spriteContainer!=null && spriteContainer.isReady))
 			{
 				spriteInvalid = false;
-				renderer.enabled = true;
+				GetComponent<Renderer>().enabled = true;
 				return true;
 			}
 			return false;		

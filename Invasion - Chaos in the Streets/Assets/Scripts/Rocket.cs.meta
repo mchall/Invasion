@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 77da186a6fe23bc4493e4e0122dfc4db
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - fireObject: {instanceID: 0}
+  - explosionObject: {instanceID: 0}
+  - explosionSound: {instanceID: 0}
+  - explosionSound2: {instanceID: 0}
+  - explosionSound3: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

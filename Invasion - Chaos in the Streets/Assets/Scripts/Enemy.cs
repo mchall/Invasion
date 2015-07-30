@@ -69,8 +69,8 @@ public class Enemy : MonoBehaviour
 			Rocket rocketScript = other.GetComponent<Rocket>();
 			if(rocketScript.destroyInvader)
 			{
-				Camera.main.audio.PlayOneShot(deathSound);
-				rocketScript.Explode(other.gameObject.rigidbody.position);
+				Camera.main.GetComponent<AudioSource>().PlayOneShot(deathSound);
+				rocketScript.Explode(other.gameObject.GetComponent<Rigidbody>().position);
 				
 				this.GetComponent<OTAnimatingSprite>().looping = false;
 				dead = true;
@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour
 		rocketClone.transform.parent = transform;
 		OTAnimatingSprite sprite = rocketClone.GetComponent<OTAnimatingSprite>();
 		sprite.onOutOfView = DestroyWhenOutOfView;	
-		rocketClone.rigidbody.velocity = transform.right * 50;
+		rocketClone.GetComponent<Rigidbody>().velocity = transform.right * 50;
 		
 		if(random == null)
 		{
@@ -97,23 +97,23 @@ public class Enemy : MonoBehaviour
 		var randNum = random.Next(5);
 		if(randNum == 0)			
 		{
-			Camera.main.audio.PlayOneShot(fireSound);
+			Camera.main.GetComponent<AudioSource>().PlayOneShot(fireSound);
 		}
 		else if(randNum == 1)
 		{
-			Camera.main.audio.PlayOneShot(fireSound2);
+			Camera.main.GetComponent<AudioSource>().PlayOneShot(fireSound2);
 		}
 		else if(randNum == 2)
 		{
-			Camera.main.audio.PlayOneShot(fireSound3);
+			Camera.main.GetComponent<AudioSource>().PlayOneShot(fireSound3);
 		}
 		else if(randNum == 2)
 		{
-			Camera.main.audio.PlayOneShot(fireSound4);
+			Camera.main.GetComponent<AudioSource>().PlayOneShot(fireSound4);
 		}
 		else
 		{
-			Camera.main.audio.PlayOneShot(fireSound5);
+			Camera.main.GetComponent<AudioSource>().PlayOneShot(fireSound5);
 		}
 	}
 

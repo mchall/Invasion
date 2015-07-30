@@ -7,9 +7,9 @@ public class DragTest : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		GameObject.Find("DragStart").renderer.enabled = false;
-		GameObject.Find("Dragging").renderer.enabled = false;
-		GameObject.Find("DragEnd").renderer.enabled = false;				
+		GameObject.Find("DragStart").GetComponent<Renderer>().enabled = false;
+		GameObject.Find("Dragging").GetComponent<Renderer>().enabled = false;
+		GameObject.Find("DragEnd").GetComponent<Renderer>().enabled = false;				
 
 		sprite = GetComponent<OTSprite>();
 		// mark this sprite to be draggable
@@ -46,9 +46,9 @@ public class DragTest : MonoBehaviour {
 			{
 				ended = false;
 				endTimer = 0;
-				GameObject.Find("DragStart").renderer.enabled = false;
-				GameObject.Find("Dragging").renderer.enabled = false;
-				GameObject.Find("DragEnd").renderer.enabled = false;				
+				GameObject.Find("DragStart").GetComponent<Renderer>().enabled = false;
+				GameObject.Find("Dragging").GetComponent<Renderer>().enabled = false;
+				GameObject.Find("DragEnd").GetComponent<Renderer>().enabled = false;				
 			}
 		}
 	}
@@ -57,9 +57,9 @@ public class DragTest : MonoBehaviour {
 	void DragStart(OTObject owner)
 	{
 			
-		GameObject.Find("DragStart").renderer.enabled = true;
-		GameObject.Find("Dragging").renderer.enabled = false;
-		GameObject.Find("DragEnd").renderer.enabled = false;				
+		GameObject.Find("DragStart").GetComponent<Renderer>().enabled = true;
+		GameObject.Find("Dragging").GetComponent<Renderer>().enabled = false;
+		GameObject.Find("DragEnd").GetComponent<Renderer>().enabled = false;				
 		ended = false;
 		endTimer = 0;
 		
@@ -68,7 +68,7 @@ public class DragTest : MonoBehaviour {
 	}
 	void DragEnd(OTObject owner)
 	{
-		GameObject.Find("DragEnd").renderer.enabled = true;		
+		GameObject.Find("DragEnd").GetComponent<Renderer>().enabled = true;		
 		if (owner.dropTarget!=null)
 			GameObject.Find("DragEnd").GetComponent<TextMesh>().text = 
 				"Drag Ended - dropped on "+owner.dropTarget.name;
@@ -82,7 +82,7 @@ public class DragTest : MonoBehaviour {
 	}
 	void Dragging(OTObject owner)
 	{
-		GameObject.Find("Dragging").renderer.enabled = true;		
+		GameObject.Find("Dragging").GetComponent<Renderer>().enabled = true;		
 		GameObject.Find("Dragging").GetComponent<TextMesh>().text = 
 			"Dragging at touch position "+((OT.mobile?""+sprite.dragTouch.position:""+Input.mousePosition));
 						

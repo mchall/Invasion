@@ -22,7 +22,7 @@ public class BlockDetonator : MonoBehaviour
 		if(other.gameObject.tag == "Player")
 		{
 			generated = true;
-			Camera.main.audio.PlayOneShot(explosionSound);
+			Camera.main.GetComponent<AudioSource>().PlayOneShot(explosionSound);
 		
 			//Instantiate(explosionObject, explosionPos, Quaternion.identity);
 			
@@ -34,7 +34,7 @@ public class BlockDetonator : MonoBehaviour
 	        Collider[] colliders = Physics.OverlapSphere(explosionPos, explosiveRadius);
 	        foreach (Collider hit in colliders) 
 			{
-				hit.rigidbody.AddForce(explosivePower, 0, 0, ForceMode.Impulse);
+				hit.GetComponent<Rigidbody>().AddForce(explosivePower, 0, 0, ForceMode.Impulse);
 				
 				if(hit.gameObject.layer != 9) //Not block
 					continue;
@@ -42,9 +42,9 @@ public class BlockDetonator : MonoBehaviour
 				_tempFireObject = (GameObject)Instantiate(fireObject, this.transform.position, this.transform.rotation);
 				_tempFireObject.transform.parent = hit.transform;
 				_tempFireObject.transform.localPosition = new Vector3(0f,0f,0f);
-				if (_tempFireObject.particleEmitter)
+				if (_tempFireObject.GetComponent<ParticleEmitter>())
 				{
-					_tempFireObject.particleEmitter.emit = true;
+					_tempFireObject.GetComponent<ParticleEmitter>().emit = true;
 					Destroy(_tempFireObject, 15);
 				}
 			}
